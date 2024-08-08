@@ -32,7 +32,7 @@ app.post('/person', async (req, res) => {
     }
 })
 
-app.get('./person', async (req, res) => {
+app.get('/person', async (req, res) => {
     try {
         const people = await Person.find()
 
@@ -42,7 +42,7 @@ app.get('./person', async (req, res) => {
     }
 })
 
-app.get('./person/:id', async (req, res) => {
+app.get('/person/:id', async (req, res) => {
     const id = req.params.id
 
     try {
@@ -109,10 +109,10 @@ app.get('/', (req, res) => {
 
 mongoose
     .connect(
-        'mongodb+srv://user:password@restfulapibanco.lq7ds.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+        'string de conexao MongoDB',
     )
     .then(() => {
         console.log('Conectou ao banco!')
-        app.listen
+        app.listen(3000, () => console.log('Servidor rodando na porta 3000'))
     })
 .catch((err) => console.log(err))
